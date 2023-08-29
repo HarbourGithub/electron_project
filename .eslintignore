@@ -1,0 +1,6 @@
+/build
+/node_moduls
+/config
+/desktop
+.eslintrc.js
+custom.d.ts

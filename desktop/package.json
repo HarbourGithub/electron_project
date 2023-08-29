@@ -1,0 +1,28 @@
+{
+  "name": "desktop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main/main.js",
+  "scripts": {
+    "dev-electron": "cross-env NODE_ENV=development electron main/main.js",
+    "prod-electron": "cross-env NODE_ENV=production electron main/main.js",
+    "build-electron": "electron-builder -w --x64"
+  },
+  "build": {
+    "appId": "harbour.electron.app",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "electron": "^26.1.0",
+    "electron-builder": "^24.6.3"
+  }
+}

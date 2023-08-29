@@ -1,0 +1,61 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./",
+        "module": "ES2022",
+        "target": "ES2022",
+        "allowJs": true,
+        "removeComments": false,
+        "noImplicitAny": false,
+        "strictNullChecks": true,
+        "noEmit": true,
+        "jsx": "react",
+        "sourceMap": true,
+        "esModuleInterop": true,
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "allowImportingTsExtensions": true,
+        "resolveJsonModule": true,
+        "lib": [
+            "es2022",
+            "dom",
+            "dom.iterable"
+        ],
+        "paths": {
+            "@src/*": [
+                "./src/*"
+            ],
+            "@assets/*": [
+                "./src/assets/*"
+            ],
+            "@app/*": [
+                "./src/app/*"
+            ],
+            "@components/*": [
+                "./src/components/*"
+            ],
+            "@pages/*": [
+                "./src/pages/*"
+            ],
+            "@common/*": [
+                "./src/common/*"
+            ],
+            "@language/*": [
+                "./src/language/*"
+            ],
+            "@redux/*": [
+                "./src/redux/*"
+            ],
+            "@router/*": [
+                "./src/router/*"
+            ],
+        }
+    },
+    "include": [
+        "src/**/*",
+        "./custom.d.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "build"
+    ]
+}
