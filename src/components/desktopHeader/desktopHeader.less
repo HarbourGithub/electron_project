@@ -1,0 +1,38 @@
+.desktop-header {
+    width: 100%;
+    height: 32px;
+    -webkit-app-region: drag;
+    box-shadow: inset 0 -1px 0 0 #E9EAED;
+    display: flex;
+    justify-content: space-between;
+    .header-logo-box {
+        height: 100%;
+        padding-left: 8px;
+        display: flex;
+        align-items: center;
+        color: #222;
+        font-size: 12px;
+        -webkit-app-region: no-drag;
+        img {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+        }
+    }
+    .header-handle-box {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        -webkit-app-region: no-drag;
+        .handle-icon {
+            padding: 4px;
+            margin: 0 2px;
+        }
+        .handle-icon:hover {
+            background-color: #F0F2F5;
+        }
+        .handle-close-icon:hover {
+            background-color: #FF3F00;
+        }
+    }
+}

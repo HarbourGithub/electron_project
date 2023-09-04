@@ -14,13 +14,15 @@ function createMainWindow() {
         title: 'Harbour',
         webPreferences: {
             nodeIntegration: true
-        }
+        },
+        icon: '../../src/assets/logo.jpg'
     })
 
     if (isProduction) {
         mainWindow.loadFile(__dirname + '../../../build/index.html')
     } else {
         mainWindow.loadURL('http://localhost:8000/')
+        mainWindow.webContents.openDevTools()
     }
 
     mainWindow.once('ready-to-show', () => {

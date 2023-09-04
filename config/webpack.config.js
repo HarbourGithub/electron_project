@@ -6,6 +6,7 @@ const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin'
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const WebpackBar = require('webpackbar')
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
 const TerserWebpackPlugin = require('terser-webpack-plugin')
 
 const isProduction = process.env.NODE_ENV === 'production'
@@ -70,6 +71,7 @@ module.exports = {
                     {
                         test: /\.(png|jpe?g|gif|webp|svg|ico)$/,
                         type: 'asset',
+                        exclude: [path.resolve(__dirname, '../src/svgIcons/icons')],
                         parser: {
                             dataUrlCondition: {
                                 maxSize: 8 * 1024
@@ -85,6 +87,16 @@ module.exports = {
                         generator: {
                             filename: 'media/[name].[hash:8][ext]'
                         }
+                    },
+                    {
+                        test: /\.svg$/,
+                        include: [path.resolve(__dirname, '../src/svgIcons/icons')],
+                        use: {
+                            loader: 'svg-sprite-loader',
+                            options: {
+                                symbolId: 'svg-[name]',
+                            },
+                        },
                     },
                     {
                         test: /\.(js|ts)x?$/,
@@ -149,6 +161,7 @@ module.exports = {
                 }
             ]
         }),
+        new SpriteLoaderPlugin({ plainSprite: true }),
         isProduction && new MiniCssExtractPlugin({
             filename: 'style/[name].[contenthash:8].css',
             chunkFilename: 'style/[name].[contenthash:8].chunk.css'
