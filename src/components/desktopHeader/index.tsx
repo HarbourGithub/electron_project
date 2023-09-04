@@ -11,29 +11,32 @@ function DesktopHeader() {
                 <span>Harbour</span>
             </div>
             <div className="header-handle-box">
-                <SvgIcon
-                    svgName="min-icon"
-                    needPointer
-                    iconColor="#737780"
-                    className="handle-icon"
-                    iconSize={32}
-                />
-                <SvgIcon
-                    svgName="max-icon"
-                    needPointer
-                    iconColor="#737780"
-                    className="handle-icon"
-                    iconSize={32}
-                />
-                <SvgIcon
-                    svgName="close-icon"
-                    needPointer
-                    hasHover
-                    iconColor="#737780"
-                    hoverColor="#fff"
-                    className="handle-icon handle-close-icon"
-                    iconSize={32}
-                />
+                <div className="handle-icon-box">
+                    <SvgIcon
+                        svgName="min-icon"
+                        needPointer
+                        iconColor="#737780"
+                        iconSize={24}
+                    />
+                </div>
+                <div className="handle-icon-box">
+                    <SvgIcon
+                        svgName="max-icon"
+                        needPointer
+                        iconColor="#737780"
+                        iconSize={24}
+                    />
+                </div>
+                <div className="handle-icon-box handle-close-icon">
+                    <SvgIcon
+                        svgName="close-icon"
+                        needPointer
+                        hasHover
+                        iconColor="#737780"
+                        hoverColor="#fff"
+                        iconSize={24}
+                    />
+                </div>
             </div>
         </div>
     )
