@@ -1,13 +1,13 @@
 import React from 'react'
 import DesktopHeader from '@components/desktopHeader'
 import './app.less'
-import '@src/svgIcons'
+import { isDesktop } from '@common/desktopUtils'
 
 function App() {
     return (
         <div id="electron-app">
-            <DesktopHeader />
-            <div className="app-content">APP</div>
+            {isDesktop() && <DesktopHeader />}
+            <div className={isDesktop() ? 'desktop-app-content' : 'app-content'}> </div>
         </div>
     )
 }

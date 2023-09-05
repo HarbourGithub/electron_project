@@ -20,6 +20,7 @@ module.exports = {
             '@src': path.resolve(__dirname, '../src'),
             '@app': path.resolve(__dirname, '../src/app'),
             '@assets': path.resolve(__dirname, '../src/assets'),
+            '@common': path.resolve(__dirname, '../src/common'),
             '@components': path.resolve(__dirname, '../src/components'),
             '@pages': path.resolve(__dirname, '../src/pages'),
             '@language': path.resolve(__dirname, '../src/language'),

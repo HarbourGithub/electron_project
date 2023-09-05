@@ -2,10 +2,10 @@
   "name": "desktop",
   "version": "1.0.0",
   "description": "",
-  "main": "main/main.js",
+  "main": "main/index.js",
   "scripts": {
-    "dev-electron": "cross-env NODE_ENV=development electron main/main.js",
-    "prod-electron": "cross-env NODE_ENV=production electron main/main.js",
+    "dev-electron": "cross-env NODE_ENV=development electron main/index.js",
+    "prod-electron": "cross-env NODE_ENV=production electron main/index.js",
     "build-electron": "electron-builder -w --x64"
   },
   "build": {

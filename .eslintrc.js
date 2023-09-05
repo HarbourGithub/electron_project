@@ -111,7 +111,9 @@ module.exports = {
         "@typescript-eslint/unbound-method": "off",
         "@typescript-eslint/no-unsafe-assignment": "off",
         "@typescript-eslint/no-unsafe-call": "off",
-        "@typescript-eslint/no-unsafe-member-access": "off"
+        "@typescript-eslint/no-unsafe-member-access": "off",
+        "jsx-a11y/click-events-have-key-events": "off",
+        "jsx-a11y/no-static-element-interactions": "off"
     },
     "globals": {},
     "overrides": [],
