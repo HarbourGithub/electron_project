@@ -1,7 +1,12 @@
 import React, { memo, useState, useEffect } from 'react'
 import './desktopHeader.less'
 import SvgIcon from '@components/svgIcon'
-import { ipcRendererSend, ipcRendererOn, ipcRendererRemoveListener } from '@common/desktopUtils'
+import {
+    getProcessNodeEnv,
+    ipcRendererSend,
+    ipcRendererOn,
+    ipcRendererRemoveListener
+} from '@common/desktopUtils'
 import logoImage from '@assets/logo.jpg'
 
 function DesktopHeader() {
@@ -21,6 +26,11 @@ function DesktopHeader() {
     const handleWindow = (eventName: string) => {
         ipcRendererSend(`mainWindow-${eventName}`)
     }
+
+    const openDevtool = () => {
+        ipcRendererSend('open-devtool')
+    }
+
     return (
         <div className="desktop-header">
             <div className="header-logo-box">
@@ -28,6 +38,11 @@ function DesktopHeader() {
                 <span>Harbour</span>
             </div>
             <div className="header-handle-box">
+                {getProcessNodeEnv() === 'development' && (
+                    <button className="open-devtool" onClick={openDevtool}>
+                        open-devtool
+                    </button>
+                )}
                 <div className="handle-icon-box" onClick={handleWindow.bind(this, 'min')}>
                     <SvgIcon
                         svgName="min-icon"

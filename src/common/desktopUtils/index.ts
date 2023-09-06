@@ -7,6 +7,9 @@ declare global {
             removeListener: (channel: string, listener: (...args: any[]) => void) => void,
             sendSync: (...args: any[]) => any,
             invoke: (...args: any[]) => Promise<any>,
+        },
+        process: {
+            NODE_ENV: 'development' | 'production'
         }
     }
 }
@@ -15,6 +18,10 @@ type ArgsType = string | number | boolean | { [key: string]: any } | any[]
 
 export const isDesktop = () => {
     return !!window.ipcRenderer
+}
+
+export const getProcessNodeEnv = () => {
+    return window.process.NODE_ENV
 }
 
 export const ipcRendererSend = (eventName: string, ...args: ArgsType[]) => {

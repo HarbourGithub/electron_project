@@ -15,16 +15,16 @@ function createMainWindow() {
         title: 'Harbour',
         webPreferences: {
             nodeIntegration: true,
-            preload: path.join(__dirname, '../../utils/contextBridge.js')
+            preload: path.join(__dirname, '../utils/contextBridge.js')
         },
         icon: '../../../src/assets/logo.jpg'
     })
 
     if (isProduction) {
-        mainWindow.loadFile(__dirname + '../../../build/index.html')
+        const entryPath = path.join(__dirname + '../../../build/index.html')
+        mainWindow.loadFile(entryPath)
     } else {
         mainWindow.loadURL('http://localhost:8000/')
-        mainWindow.webContents.openDevTools()
     }
 
     mainWindow.once('ready-to-show', () => {
@@ -51,6 +51,10 @@ function createMainWindow() {
 
     ipcMain.on('mainWindow-close', () => {
         mainWindowIsExist() && mainWindow.hide()
+    })
+
+    ipcMain.on('open-devtool', () => {
+        mainWindowIsExist() && mainWindow.webContents.openDevTools()
     })
 }
 
