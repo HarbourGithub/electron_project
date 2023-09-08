@@ -113,7 +113,8 @@ module.exports = {
         "@typescript-eslint/no-unsafe-call": "off",
         "@typescript-eslint/no-unsafe-member-access": "off",
         "jsx-a11y/click-events-have-key-events": "off",
-        "jsx-a11y/no-static-element-interactions": "off"
+        "jsx-a11y/no-static-element-interactions": "off",
+        "object-curly-newline": "off"
     },
     "globals": {},
     "overrides": [],
