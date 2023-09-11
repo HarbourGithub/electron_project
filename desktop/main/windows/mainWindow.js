@@ -17,12 +17,13 @@ function createMainWindow() {
             nodeIntegration: true,
             preload: path.resolve(__dirname, '../utils/contextBridge.js')
         },
-        icon: path.resolve(__dirname, '../assets/logo.jpg')
+        icon: path.resolve(__dirname, '../assets/logo.png')
     })
 
     if (isProduction) {
         const entryPath = path.resolve(__dirname, '../../../build/index.html')
         mainWindow.loadFile(entryPath)
+        mainWindow.webContents.openDevTools()
     } else {
         mainWindow.loadURL('http://localhost:8000/')
     }

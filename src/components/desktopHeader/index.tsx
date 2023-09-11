@@ -6,7 +6,7 @@ import {
     ipcRendererOn,
     ipcRendererRemoveListener
 } from '@common/desktopUtils'
-import logoImage from '@assets/logo.jpg'
+import logoImage from '@assets/logo.png'
 
 function DesktopHeader() {
 

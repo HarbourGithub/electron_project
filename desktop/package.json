@@ -1,21 +1,37 @@
 {
   "name": "desktop",
+  "productName": "Harbour",
   "version": "1.0.0",
   "description": "",
   "main": "main/index.js",
   "scripts": {
     "dev-electron": "cross-env NODE_ENV=development electron main/index.js",
     "prod-electron": "cross-env NODE_ENV=production electron main/index.js",
-    "build-electron": "electron-builder -w --x64"
+    "build-electron-win64": "electron-builder -w --x64"
   },
   "build": {
+    "productName": "Harbour",
     "appId": "harbour.electron.app",
     "directories": {
       "output": "dist"
     },
+    "nsis": {
+      "oneClick": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "./main/assets/logo.ico",
+      "uninstallerIcon": "./main/assets/logo.ico",
+      "installerHeaderIcon": "./main/assets/logo.png",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Harbour"
+    },
     "win": {
+      "icon": "./main/assets/logo.ico",
+      "artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
       "target": "nsis"
-    }
+    },
+    "electronDist": "./electron"
   },
   "keywords": [],
   "author": "",

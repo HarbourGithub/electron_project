@@ -18,7 +18,7 @@ function App() {
 
     const openDevtoolInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { value } = event.target
-        if (value === 'open devtool') {
+        if (value === 'openDevtool') {
             openDevtool()
         }
     }
@@ -41,7 +41,15 @@ function App() {
 
     return (
         <div id="electron-app">
-            <input className="open-devtool-input" ref={openDevtoolInput} type="text" onChange={openDevtoolInputChange} />
+            {getProcessNodeEnv() === 'production' && (
+                <input
+                    className="open-devtool-input"
+                    ref={openDevtoolInput}
+                    type="text"
+                    onChange={openDevtoolInputChange}
+                    onBlur={(e) => { e.target.value = '' }}
+                />
+            )}
             {isDesktop() && <DesktopHeader />}
             <div className={isDesktop() ? 'desktop-app-content' : 'app-content'}>
                 <div className="electron-img">

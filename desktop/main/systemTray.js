@@ -3,7 +3,7 @@ const path = require('path')
 const { getMainWindow, mainWindowIsExist } = require('./windows/mainWindow')
 
 let tray = null
-const iconPath = path.join(__dirname, '../../src/assets/logo.jpg')
+const iconPath = path.resolve(__dirname, './assets/logo.png')
 
 function initTray() {
     tray = new Tray(iconPath)
