@@ -21,7 +21,7 @@ export const isDesktop = () => {
 }
 
 export const getProcessNodeEnv = () => {
-    return window.process.NODE_ENV
+    return window?.process.NODE_ENV
 }
 
 export const ipcRendererSend = (eventName: string, ...args: ArgsType[]) => {

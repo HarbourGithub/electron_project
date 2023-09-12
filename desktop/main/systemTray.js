@@ -30,5 +30,3 @@ function getTray() {
 }
 
 module.exports = { initTray, getTray }
-
-
