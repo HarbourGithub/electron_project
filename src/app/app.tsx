@@ -11,6 +11,7 @@ import electronImg from '@assets/electronImg.png'
 function App() {
 
     const openDevtoolInput = useRef<HTMLInputElement>(null)
+    const isDevelopment = useRef(getProcessNodeEnv() === 'development')
 
     const openDevtool = useCallback(() => {
         ipcRendererSend('mainWindow-open-devtool')
@@ -27,11 +28,11 @@ function App() {
         document.addEventListener('keydown', (e) => {
             const { ctrlKey, metaKey, altKey, key } = e
             // 开发环境使用ctrl + F12打开控制台
-            if (getProcessNodeEnv() === 'development' && ctrlKey && key === 'F12') {
+            if (isDevelopment.current && ctrlKey && key === 'F12') {
                 openDevtool()
             }
             // 开发环境使用ctrl + win + alt + F12，然后键入'open devtool'打开控制台
-            if (getProcessNodeEnv() === 'production' && ctrlKey && metaKey && altKey && key === 'F12') {
+            if (!isDevelopment.current && ctrlKey && metaKey && altKey && key === 'F12') {
                 if (openDevtoolInput.current) {
                     openDevtoolInput.current.focus()
                 }
@@ -41,7 +42,7 @@ function App() {
 
     return (
         <div id="electron-app">
-            {getProcessNodeEnv() === 'production' && (
+            {!isDevelopment.current && (
                 <input
                     className="open-devtool-input"
                     ref={openDevtoolInput}

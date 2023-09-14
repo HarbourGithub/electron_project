@@ -1,7 +1,7 @@
 const { BrowserWindow, ipcMain } = require('electron')
 const path = require('path')
 
-const isProduction = process.env.NODE_ENV === 'production'
+const isDevelopment = process.env.NODE_ENV === 'development'
 let mainWindow = null
 
 function createMainWindow() {
@@ -20,12 +20,11 @@ function createMainWindow() {
         icon: path.resolve(__dirname, '../assets/logo.png')
     })
 
-    if (isProduction) {
-        const entryPath = path.resolve(__dirname, '../../../build/index.html')
-        mainWindow.loadFile(entryPath)
-        mainWindow.webContents.openDevTools()
-    } else {
+    if (isDevelopment) {
         mainWindow.loadURL('http://localhost:8000/')
+    } else {
+        const entryPath = path.resolve(__dirname, '../../build/index.html')
+        mainWindow.loadFile(entryPath)
     }
 
     mainWindow.once('ready-to-show', () => {

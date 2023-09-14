@@ -12,6 +12,10 @@
   "build": {
     "productName": "Harbour",
     "appId": "harbour.electron.app",
+    "files": [
+      "build/**/*",
+      "main/**/*"
+    ],
     "directories": {
       "output": "dist"
     },

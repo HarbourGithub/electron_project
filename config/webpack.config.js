@@ -30,7 +30,7 @@ module.exports = {
     },
     entry: './src/index.tsx',
     output: {
-        path: isProduction ? path.resolve(__dirname, '../build') : undefined,
+        path: isProduction ? path.resolve(__dirname, '../desktop/build') : undefined,
         filename: 'js/[name].[contenthash:8].js',
         chunkFilename: 'js/[name].[contenthash:8].chunk.js',
         clean: true,
@@ -155,7 +155,7 @@ module.exports = {
             patterns: [
                 {
                     from: path.resolve(__dirname, '../public'),
-                    to: path.resolve(__dirname, '../build'),
+                    to: path.resolve(__dirname, '../desktop/build'),
                     globOptions: {
                         ignore: ['**/index.html']
                     }
